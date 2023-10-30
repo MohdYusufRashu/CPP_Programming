@@ -35,9 +35,7 @@ public:
                 l1=l1->next;
             }
             prev->next=l2;
-            ListNode* temp=l1;
-            l1=l2;
-            l2=temp;
+            swap(l1,l2);
         }
         return ans;
     }
