@@ -27,13 +27,6 @@ public:
                 }
             }
         }
-        for(int i=0;i<m;i++){
-            cout<<row[i]<<" ";
-        }
-        cout<<endl;
-        for(int i=0;i<n;i++){
-            cout<<col[i]<<" ";
-        }
         int count=0;
         for(int i=0;i<m;i++){
             if(row[i]!=-1 && row[i]!=-2){
