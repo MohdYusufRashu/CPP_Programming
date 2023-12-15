@@ -1,7 +1,6 @@
 class Solution {
 public:
     string destCity(vector<vector<string>>& paths) {
-        string ans;
         unordered_map<string,int> map;
         for(int i=0;i<paths.size();i++){
             map[paths[i][0]]++;
@@ -12,6 +11,6 @@ public:
                 return paths[i][1];
             }
         }
-        return ans;
+        return "";
     }
 };
