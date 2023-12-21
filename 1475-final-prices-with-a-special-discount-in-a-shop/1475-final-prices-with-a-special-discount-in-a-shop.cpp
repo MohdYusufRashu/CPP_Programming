@@ -9,11 +9,8 @@ public:
             while(!st.empty() && st.top()>prices[i]){
                 st.pop();
             }
-            if(st.empty()){
-                //nextSmaller[i]=-1;
-                output[i]=prices[i];
-            }else{
-                //nextSmaller[i]=st.top();
+            output[i]=prices[i];
+            if(!st.empty()){
                 output[i]=prices[i]-st.top();
             }
             st.push(prices[i]);
