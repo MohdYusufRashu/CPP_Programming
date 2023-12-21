@@ -2,7 +2,6 @@ class Solution {
 public:
     vector<int> finalPrices(vector<int>& prices) {
         int n=prices.size();
-        //vector<int> nextSmaller(n);
         vector<int> output(n);
         stack<int> st;
         for(int i=n-1;i>=0;i--){
