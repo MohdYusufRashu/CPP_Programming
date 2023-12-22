@@ -19,10 +19,6 @@ public:
                     }
                 }
             }
-            for(int i=0;i<n;i++){
-                cout<<weights[i]<<" ";
-            }
-            cout<<endl;
         }
         if(weights[dst]==INT_MAX) return -1;
         return weights[dst];
