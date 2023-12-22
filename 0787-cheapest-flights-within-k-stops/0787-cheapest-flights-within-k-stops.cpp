@@ -14,12 +14,9 @@ public:
                 for(int j=0;j<graph[v1].size();j++){
                     int v2=graph[i][j].first;
                     int cost=graph[i][j].second;
-                    if(temp[v1]!=INT_MAX && (weights[v2]>(temp[v1]+cost))){
+                    if(temp[v1]!=INT_MAX && weights[v2]>temp[v1]+cost){
                         weights[v2]=temp[v1]+cost;
                     }
-                    /*if(v2==dst){
-                        cout<<weights[v2]<<endl;
-                    }*/
                 }
             }
             for(int i=0;i<n;i++){
