@@ -2,14 +2,14 @@ class Solution {
 public:
     //vector<vector<vector<string>>> dp;
     unordered_map<string,bool> dp;
-    bool helper(string s1, string s2c,string& s2,int start,int end){
-        string temp=s1 + "#" + s2c;
+    bool helper(string s1,string s2){
+        string temp=s1 + "#" + s2;
         if(dp.find(temp)!=dp.end()){
             return dp[temp];
         }
         
         
-        if(s1==s2c){
+        if(s1==s2){
             dp[temp]=true;
             return true;
         }    
@@ -24,20 +24,9 @@ public:
             y=s1.substr(i+1);
             int xl=x.size();
             int yl=y.size();
-            //cout<<x<<" "<<y<<endl;
-            bool flag=false;
-            bool flag2=false;
-            if(s1=="abcdbdac"){
-                if(x=="abcd" && y=="bdac"){
-                    flag2=true;
-                }
-                cout<<x<<" "<<y<<endl;
-                cout<<start<<" "<<end<<endl;
-                flag=true;
-            }
             bool temp=false;
-            temp=temp || (helper(x,s2.substr(start,xl),s2,start,start + xl-1) && helper(y,s2.substr(start+xl,yl),s2,start+xl,end));
-            temp = temp || (helper(y,s2.substr(start,yl),s2,start,start+yl-1) && helper(x,s2.substr(start+yl,xl),s2,start+yl,end));
+            temp=temp || (helper(x,s2.substr(0,xl)) && helper(y,s2.substr(xl)));
+            temp = temp || (helper(y,s2.substr(0,yl)) && helper(x,s2.substr(yl,xl)));
             ans=ans || temp; 
             if(ans) break;
         }
@@ -47,6 +36,6 @@ public:
     bool isScramble(string s1, string s2) {
         int n=s1.size();
        // dp=vector<vector<vector<int>>>(n,vector<vector<int>>(n,vector<int>(n,-1)));
-        return helper(s1,s2,s2,0,s1.size()-1);
+        return helper(s1,s2);
     }
 };
