@@ -1,18 +1,6 @@
 class Solution {
 public:
-    
-    /*int helper(string colors, vector<int>& neededTime,int index,char color){
-        if(index==colors.size()){
-            return 0;
-        }
-        int ans;
-        if(colors[index]==color){
-            ans=min(ans)
-        }
-    }*/
     int minCost(string colors, vector<int>& neededTime) {
-        
-        //helper(colors,neededTime,0,)
         int i=0,j=0;
         int maxTime=0;
         int sum=0;
@@ -27,7 +15,6 @@ public:
                 }
             }else{
                 ans=ans + sum-maxTime;
-                //cout<<ans<<endl;
                 sum=0;
                 maxTime=0;
                 i=j;
