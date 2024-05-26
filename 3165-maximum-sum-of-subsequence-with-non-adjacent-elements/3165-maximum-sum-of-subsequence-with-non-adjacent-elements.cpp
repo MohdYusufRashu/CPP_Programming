@@ -38,22 +38,16 @@ public:
         }
         
         public:
+        
         ST(vector<int>& nums){
             n=nums.size();
-            //segTree.resize(4*n+1,vector<long long>(4,vector<long long>(2)));
-            
-             segTree.resize(4 * n);
-
-        // Resize each element in the outermost vector to a vector of size 4
-        for (int i = 0; i < 4 * n; ++i) {
-            segTree[i].resize(4);
-
-            // Resize each element in the 2nd dimension to a vector of size 2
-            for (int j = 0; j < 4; ++j) {
-                segTree[i][j].resize(2);
+            segTree.resize(4 * n);
+            for (int i = 0; i < 4 * n; ++i) {
+                segTree[i].resize(4);
+                for (int j = 0; j < 4; ++j) {
+                    segTree[i][j].resize(2);
+                }
             }
-        }
-            
             build(nums,0,0,n-1);
         }
         
