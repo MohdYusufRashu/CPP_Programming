@@ -1,18 +1,17 @@
 class MyCalendar {
 public:
-    vector<vector<int>> intervals;
+    map<int,int> intervals;
     MyCalendar() {
         
     }
     
     bool book(int start, int end) {
-        for(auto v : intervals){
-            if(!(end<=v[0] || start>=v[1])){
-                return false;
-            }
+        auto ub=intervals.upper_bound(start);
+        if(ub==intervals.end() || ub->second >= end){
+            intervals[end]=start;
+            return true;
         }
-        intervals.push_back({start,end});
-        return true;
+        return false;
     }
 };
 
